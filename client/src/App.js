@@ -3,7 +3,7 @@ import HomePage from './components/static/HomePage';
 // import { useEffect, useState } from 'react';
 // import LocationsList from './components/locations/LocationsList';
 // import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-// import NavBar from './components/navigation/NavBar'
+import NavBar from './components/navigation/NavBar'
 // import LocationPage from './components/locations/LocationPage'
 // import AddLocation from './components/locations/AddLocation';
 // import EditLocation from './components/locations/EditLocation';
@@ -14,7 +14,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-      {/* <NavBar /> */}
+      <NavBar />
       <Routes>
           <Route path="/" element={<HomePage />} />
           {/* <Route path="/locations" element={<LocationsList locations={locations}  />} />
