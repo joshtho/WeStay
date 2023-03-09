@@ -1,23 +1,55 @@
-import logo from './logo.svg';
 import './App.css';
+import HomePage from './components/static/HomePage';
+import { useEffect, useState } from 'react';
+import LocationsList from './components/locations/LocationsList';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import NavBar from './components/navigation/NavBar'
+import LocationPage from './components/locations/LocationPage'
+import AddLocation from './components/locations/AddLocation';
+import EditLocation from './components/locations/EditLocation';
+import AddLodging from './components/lodging/AddLodging';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+      <NavBar />
+      <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/locations" element={<LocationsList locations={locations}  />} />
+              <Route 
+              path="/locations/:id" 
+              element={
+              <LocationPage 
+              lodgings={lodgings} 
+              locations={locations}
+              onHandleDelete={handleDeleteLodging} 
+              /> } />
+              
+              <Route 
+              path="/locations/:id/edit" 
+              element={
+              <EditLocation 
+              locations={locations} 
+              onHandleUpdate={handleUpdate} 
+              onHandleDelete={handleDeleteLocation}
+              />} />
+
+              <Route 
+              path="/locations/add" 
+              element={<AddLocation onNewLocation={handleNewLocation} />} 
+              />
+
+              <Route 
+              path="/lodgings/:id" 
+              element={
+              <AddLodging 
+              onNewLodging={handleNewLodging} 
+              locations={locations} />} 
+              />
+          <Route />
+        </Routes>
+      </Router>
     </div>
   );
 }
