@@ -3,7 +3,7 @@ import React from 'react'
 function HomePage() {
   return (
     <div>
-        <h1>Plan your stay</h1>
+        <h1>This route is working</h1>
     </div>
   )
 }

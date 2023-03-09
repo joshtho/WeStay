@@ -1,22 +1,23 @@
 import './App.css';
 import HomePage from './components/static/HomePage';
-import { useEffect, useState } from 'react';
-import LocationsList from './components/locations/LocationsList';
+// import { useEffect, useState } from 'react';
+// import LocationsList from './components/locations/LocationsList';
+// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// import NavBar from './components/navigation/NavBar'
+// import LocationPage from './components/locations/LocationPage'
+// import AddLocation from './components/locations/AddLocation';
+// import EditLocation from './components/locations/EditLocation';
+// import AddLodging from './components/lodging/AddLodging';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import NavBar from './components/navigation/NavBar'
-import LocationPage from './components/locations/LocationPage'
-import AddLocation from './components/locations/AddLocation';
-import EditLocation from './components/locations/EditLocation';
-import AddLodging from './components/lodging/AddLodging';
 
 function App() {
   return (
     <div className="App">
       <Router>
-      <NavBar />
+      {/* <NavBar /> */}
       <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/locations" element={<LocationsList locations={locations}  />} />
+          {/* <Route path="/locations" element={<LocationsList locations={locations}  />} />
               <Route 
               path="/locations/:id" 
               element={
@@ -47,7 +48,7 @@ function App() {
               onNewLodging={handleNewLodging} 
               locations={locations} />} 
               />
-          <Route />
+          <Route /> */}
         </Routes>
       </Router>
     </div>
