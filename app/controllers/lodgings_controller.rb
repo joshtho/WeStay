@@ -28,6 +28,6 @@ class LodgingsController < ApplicationController
     private
 
     def lodging_params
-        params.permit(:link, :image, :season, :guests, :dates)
+        params.permit(:link, :image, :season, :guests, :dates, :location, :user)
     end
 end

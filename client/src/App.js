@@ -9,12 +9,14 @@ import NavBar from './components/navigation/NavBar'
 // import EditLocation from './components/locations/EditLocation';
 // import AddLodging from './components/lodging/AddLodging';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useState } from 'react';
 
 function App() {
+  const [isLoggedIn, setisLoggedIn] = useState(false)
   return (
     <div className="App">
       <Router>
-      <NavBar />
+      <NavBar isLoggedIn={isLoggedIn} />
       <Routes>
           <Route path="/" element={<HomePage />} />
           {/* <Route path="/locations" element={<LocationsList locations={locations}  />} />
