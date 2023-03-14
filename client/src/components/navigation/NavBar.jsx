@@ -3,11 +3,11 @@ import Nav from 'react-bootstrap/Nav';
 import {Link} from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 
-function NavBar({isLoggedIn}) {
+function NavBar({loggedIn, user}) {
   return (
     <>
         {
-            isLoggedIn ? 
+            loggedIn ? 
         <Nav className="justify-content-center" activeKey="/">
             <Nav.Item>
                 <Link to="/">
@@ -24,6 +24,7 @@ function NavBar({isLoggedIn}) {
                     <Button>Login</Button>
                 </Link>
             </Nav.Item>
+           Welcome {user.username}!
         </Nav> :
 
         <Nav className="justify-content-center" activeKey="/">

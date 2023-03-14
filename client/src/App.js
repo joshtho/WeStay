@@ -12,14 +12,25 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
 function App() {
-  const [isLoggedIn, setisLoggedIn] = useState(false)
+  const [loggedIn, setLoggedIn] = useState(false)
+  const [user, setUser] = useState({})
+  const [locations, setLocations] = useState([])
+
+  useEffect(() => {
+    fetch('http://localhost:4000/locations')
+    .then(r => r.json())
+    .then(setLocations)
+    
+  }, [])
+  
+
   return (
     <div className="App">
       <Router>
-      <NavBar isLoggedIn={isLoggedIn} />
+      <NavBar loggedIn={loggedIn} user={user} />
       <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/login" element={<LoginPage isLoggedIn={isLoggedIn} />} />
+          <Route path="/login" element={<LoginPage setLoggedIn={setLoggedIn} setUser={setUser} />} />
           {/* <Route path="/locations" element={<LocationsList locations={locations}  />} />
               <Route 
               path="/locations/:id" 

@@ -73,14 +73,14 @@ south_padre = Location.create(
 # ])
 user1 = User.create(
     {
-        username: "traveler1",
+        username: "traveler1@abc.com",
         password: "password1"
     }
 )
 
 user2 = User.create(
     {
-        username: "traveler2",
+        username: "traveler2@abc.com",
         password: "abc123"
     }
 )

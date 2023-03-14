@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { Navigate, useNavigate } from 'react-router-dom';
 
-function LoginPage() {
+function LoginPage({setLoggedIn, setUser}) {
+    const navigate = useNavigate()
     const [loginData, setLoginData] = useState({
         username: "",
         password: ""
@@ -16,7 +18,13 @@ function LoginPage() {
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(loginData)
+            body: JSON.stringify(loginData),
+        })
+        .then(r => r.json())
+        .then(login => {
+            setUser(login)
+            setLoggedIn(true)
+            navigate('/')
         })
     }
   return (
