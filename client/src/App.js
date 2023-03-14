@@ -15,11 +15,15 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false)
   const [user, setUser] = useState({})
   const [locations, setLocations] = useState([])
+  const [lodgings, setLodgings] = useState([])
 
   useEffect(() => {
     fetch('http://localhost:4000/locations')
     .then(r => r.json())
     .then(setLocations)
+    fetch('http://localhost:4000/lodgings')
+    .then(r => r.json())
+    .then(setLodgings)
     
   }, [])
   
@@ -31,17 +35,17 @@ function App() {
       <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage setLoggedIn={setLoggedIn} setUser={setUser} />} />
-          {/* <Route path="/locations" element={<LocationsList locations={locations}  />} />
+          <Route path="/locations" element={<LocationsList locations={locations}  />} />
               <Route 
               path="/locations/:id" 
               element={
               <LocationPage 
               lodgings={lodgings} 
               locations={locations}
-              onHandleDelete={handleDeleteLodging} 
+              // onHandleDelete={handleDeleteLodging} 
               /> } />
               
-              <Route 
+              {/* <Route 
               path="/locations/:id/edit" 
               element={
               <EditLocation 
@@ -53,16 +57,16 @@ function App() {
               <Route 
               path="/locations/add" 
               element={<AddLocation onNewLocation={handleNewLocation} />} 
-              />
+              /> */}
 
               <Route 
               path="/lodgings/:id" 
               element={
               <AddLodging 
-              onNewLodging={handleNewLodging} 
+              // onNewLodging={handleNewLodging} 
               locations={locations} />} 
               />
-          <Route /> */}
+          <Route />
         </Routes>
       </Router>
     </div>
