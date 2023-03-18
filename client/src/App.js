@@ -21,19 +21,6 @@ function App() {
   //update all state when post patch delete happens 
   //shouldnt see edit and delete links on someone elses resource, check user.id === user_id
 
-  
-  // useEffect(() => {
-  //   // auto-login
-  //     fetch("http://localhost:4000/me")
-  //     .then(r => r.json())
-  //     .then(data => {
-  //       if(data.id) {
-  //         setUser(data)
-  //         setLoggedIn(true)
-  //       }
-  //     })
-
-  // }, []);
   useEffect(() => {
     // auto-login
     fetch("http://localhost:4000/me").then((r) => {
@@ -45,9 +32,6 @@ function App() {
       }})
   }, []);
   
-  
-  
-  
   useEffect(() => {
     fetch('http://localhost:4000/locations')
     .then(r => r.json())
@@ -57,10 +41,14 @@ function App() {
     .then(setLodgings)
   }, [])
   
-  
-console.log(locations)
-console.log(lodgings)
-console.log(user)
+  function handleDeleteLodging(id) {
+    const updatedLodgings = lodgings.filter(lodgings => lodgings.id !== id)
+    const updateUserLodgings = user.lodgings.filter(lodgings => lodgings.id !== id)
+    setLodgings(updatedLodgings)
+    setUser({...user, lodgings: updateUserLodgings})
+  }
+
+
   return (
     <div className="App">
       <Router>
@@ -69,14 +57,13 @@ console.log(user)
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage setLoggedIn={setLoggedIn} setUser={setUser} />} />
           <Route path="/signup" element={<SignupPage setLoggedIn={setLoggedIn} setUser={setUser} />} />
-          <Route path="/locations" element={<LocationsList locations={locations}  />} />
+          <Route path="/locations" element={<LocationsList locations={locations} user={user} />} />
               <Route 
               path="/locations/:id" 
               element={
               <LocationPage 
-              lodgings={lodgings} 
-              locations={locations}
-              // onHandleDelete={handleDeleteLodging} 
+              user={user}
+              onHandleDelete={handleDeleteLodging} 
               /> } />
               
               {/* <Route 

@@ -3,12 +3,13 @@ import LocationTile from './LocationTile'
 import Button from 'react-bootstrap/Button'
 import { Link } from 'react-router-dom'
 
-function LocationsList({locations}) {
-    console.log(locations)
+function LocationsList({locations, user}) {
+  const userLocations = user.locations
+  console.log(userLocations)
   return (
     <div className='row'>
-        { locations ?
-        locations.map(location => (
+        { userLocations ?
+        userLocations.map(location => (
             <LocationTile key={location.id} location={location} />
         ))
         : "Loading...."

@@ -10,8 +10,8 @@ function NavBar({loggedIn, user, setUser, setLoggedIn}) {
         fetch("http://localhost:4000/logout", { method: "DELETE" }).then((r) => {
             if (r.ok) {
             setLoggedIn(false)
-            setUser(null);
             navigate("/")
+            setUser(null);
             }
           })
     }

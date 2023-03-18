@@ -13,7 +13,7 @@ function LodgingTile({stay, onHandleDelete}) {
   }
 
   function handleDeleteClick() {
-    fetch(`http://localhost:9292/lodgings/${stay.id}`, {
+    fetch(`/lodgings/${stay.id}`, {
       method: "DELETE",
     })
     onHandleDelete(stay.id)
@@ -21,18 +21,17 @@ function LodgingTile({stay, onHandleDelete}) {
   }
 
 
-
   return (
     <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src={stay.image} />
       <Card.Body>
+      <Card.Img variant="top" src={stay.image} />
         <Card.Title>{stay.season}</Card.Title>
         <Card.Title>{stay.dates}</Card.Title>
         <Card.Text>
           Guests: {stay.guests}
         </Card.Text>
-        {/* <Button onClick={handleLinkClick}>Go to the link</Button>
-        <Button onClick={handleDeleteClick}>Delete stay</Button> */}
+        <Button onClick={handleLinkClick}>Go to the link</Button>
+        <Button onClick={handleDeleteClick}>Delete stay</Button>
       </Card.Body>
     </Card>
   );

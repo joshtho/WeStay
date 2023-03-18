@@ -120,11 +120,11 @@ cloudcroft1 = Lodging.create(
 )
 breck1 = Lodging.create(
     {
-        season: "Winter",
-        link:   "https://www.airbnb.com/rooms/769513396759626379?adults=10&location=Breckenridge%2C%20Colorado%2C%20United%20States&check_in=2023-02-16&check_out=2023-02-20&federated_search_id=018627b6-2203-4751-b422-00b68eaf5060&source_impression_id=p3_1670269614_B7nA9D0MYPYJw0g0",
+        season: "Spring",
+        link:   "https://www.airbnb.com/rooms/771075289375584142?adults=10&check_in=2023-04-16&check_out=2023-04-20&federated_search_id=97f6b8dd-3b67-465d-9331-5b73ae8121dd&source_impression_id=p3_1679171280_xlzrLOVhzepIDdNh",
         guests: 10,
-        dates: "2/16/2023-2/20/2023",
-        image: "https://a0.muscache.com/im/pictures/prohost-api/Hosting-769513396759626379/original/e0e9d6c4-b01a-49d9-80d7-7d0e32d9ee96.jpeg?im_w=960",
+        dates: "4/16/2023-4/20/2023",
+        image: "https://a0.muscache.com/im/pictures/prohost-api/Hosting-771075289375584142/original/457a7bff-35a0-4b3e-9187-9de71f449ac8.png?im_w=1200",
         location_id: breck.id,
         user_id: user1.id
     }
