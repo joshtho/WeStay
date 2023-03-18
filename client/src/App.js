@@ -17,6 +17,25 @@ function App() {
   const [locations, setLocations] = useState([])
   const [lodgings, setLodgings] = useState([])
 
+  //update all state when post patch delete happens 
+  //shouldnt see edit and delete links on someone elses resource, check user.id === user_id
+
+  
+  useEffect(() => {
+    // auto-login
+    fetch("http://localhost:4000/me")
+    .then(r => r.json())
+    .then(data => {
+      setUser(data)
+      setLoggedIn(true)
+    })
+    // {
+    //   if (r.ok) {
+    //     r.json().then((user) => setUser(user));
+    //   }
+    // });
+  }, []);
+
   useEffect(() => {
     fetch('http://localhost:4000/locations')
     .then(r => r.json())
@@ -24,10 +43,12 @@ function App() {
     fetch('http://localhost:4000/lodgings')
     .then(r => r.json())
     .then(setLodgings)
-    
   }, [])
   
-
+  
+console.log(locations)
+console.log(lodgings)
+console.log(user)
   return (
     <div className="App">
       <Router>
@@ -59,13 +80,13 @@ function App() {
               element={<AddLocation onNewLocation={handleNewLocation} />} 
               /> */}
 
-              <Route 
+              {/* <Route 
               path="/lodgings/:id" 
               element={
               <AddLodging 
               // onNewLodging={handleNewLodging} 
               locations={locations} />} 
-              />
+              /> */}
           <Route />
         </Routes>
       </Router>

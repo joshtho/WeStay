@@ -7,7 +7,7 @@ function LocationPage({lodgings, locations, onHandleDelete}) {
 const params = useParams()
 const locationId = parseInt(params.id)
 const currentLocation = locations.find(location => location.id === locationId)
-const stays = lodgings.filter(lodging => locationId === lodging.location_id)
+const stays = lodgings.filter(lodging => locationId === lodging.location.id)
 const listStays = () => (stays.map(stay => (
     <LodgingTile 
     key={stay.id} 
@@ -19,17 +19,17 @@ const listStays = () => (stays.map(stay => (
 console.log(lodgings)
 return (
     <div>
-        Lodgings
-        {/* {currentLocation ? 
+        
+        {currentLocation ? 
         <div>
             <h1>{currentLocation.name}</h1>
             {listStays()}
-            <Link to={`/lodgings/${locationId}`} >
+            {/* <Link to={`/lodgings/${locationId}`} >
                 <Button>Add new lodging</Button>
-            </Link>
+            </Link> */}
             
         </div>
-         : "" } */}
+         : "" }
     </div>
     )
 }
