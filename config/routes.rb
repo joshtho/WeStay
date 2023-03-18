@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :lodgings
   resources :locations
 
+  get "/users", to: "users#index"
   post "/signup", to: "users#create"
   get "/me", to: "users#show"
   post "/login", to: "sessions#create"

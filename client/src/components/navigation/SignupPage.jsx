@@ -3,23 +3,23 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useNavigate } from 'react-router-dom';
 
-function LoginPage({setLoggedIn, setUser}) {
+function SignupPage({setLoggedIn, setUser}) {
     const navigate = useNavigate()
-    const [loginData, setLoginData] = useState({
+    const [signupData, setSignupData] = useState({
         username: "",
         password: ""
     })
     const [errors, setErrors] = useState([])
 
-    function handleLoginSubmit(e) {
+    function handleSignupSubmit(e) {
         e.preventDefault()
 
-        fetch(`http://localhost:4000/login`, {
+        fetch(`http://localhost:4000/signup`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(loginData),
+            body: JSON.stringify(signupData),
         })
         .then((r) => {
             if (r.ok) {
@@ -33,17 +33,16 @@ function LoginPage({setLoggedIn, setUser}) {
             }
           })
     }
-
   return (
-    <Form onSubmit={handleLoginSubmit} >
-        <h1>Welcome back! Please Login</h1>
+    <Form onSubmit={handleSignupSubmit} >
+        <h1>Ready to plan your stay? Signup here</h1>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Username</Form.Label>
         <Form.Control 
         type="email" 
         placeholder="Enter username"
-        value={loginData.username}
-        onChange={e => setLoginData({...loginData, username: e.target.value})}
+        value={signupData.username}
+        onChange={e => setSignupData({...signupData, username: e.target.value})}
         />
         <Form.Text className="text-muted">
           We'll never share your email with anyone else.
@@ -55,8 +54,8 @@ function LoginPage({setLoggedIn, setUser}) {
         <Form.Control 
         type="password" 
         placeholder="Password" 
-        value={loginData.password}
-        onChange={e => setLoginData({...loginData, password: e.target.value})}
+        value={signupData.password}
+        onChange={e => setSignupData({...signupData, password: e.target.value})}
         />
       </Form.Group>
       {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
@@ -76,4 +75,4 @@ function LoginPage({setLoggedIn, setUser}) {
   );
 }
 
-export default LoginPage;
+export default SignupPage;

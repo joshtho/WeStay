@@ -1,9 +1,20 @@
 import React from 'react'
 import Nav from 'react-bootstrap/Nav';
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 
-function NavBar({loggedIn, user}) {
+function NavBar({loggedIn, user, setUser, setLoggedIn}) {
+    const navigate = useNavigate()
+    
+    function handleLogout() {
+        fetch("http://localhost:4000/logout", { method: "DELETE" }).then((r) => {
+            if (r.ok) {
+            setLoggedIn(false)
+            setUser(null);
+            navigate("/")
+            }
+          })
+    }
   return (
     <>
         {
@@ -20,9 +31,7 @@ function NavBar({loggedIn, user}) {
                 </Link>
             </Nav.Item>
             <Nav.Item>
-                <Link to="/login">
-                    <Button>Login</Button>
-                </Link>
+                    <Button onClick={handleLogout}>Logout</Button>
             </Nav.Item>
            Welcome {user.username}!
         </Nav> :
@@ -31,6 +40,12 @@ function NavBar({loggedIn, user}) {
             <Nav.Item>
                 <Link to="/">
                     <Button>Home</Button>
+                </Link>
+            </Nav.Item>
+            
+            <Nav.Item>
+                <Link to="/signup">
+                    <Button>Signup</Button>
                 </Link>
             </Nav.Item>
             
