@@ -17,29 +17,45 @@ function App() {
   const [user, setUser] = useState(null)
   const [locations, setLocations] = useState([])
   const [lodgings, setLodgings] = useState([])
+  const [loading, setLoading] = useState(true)
 
   //update all state when post patch delete happens 
   //shouldnt see edit and delete links on someone elses resource, check user.id === user_id
 
   useEffect(() => {
     // auto-login
-    fetch("http://localhost:4000/me").then((r) => {
+    fetch("/me").then((r) => {
       if (r.ok) {
         r.json().then((user) => {
           setUser(user);
           setLoggedIn(true)
+          setLoading(false)
         })
+      } else {
+        console.log("no user")
+        setLoading(false)
       }})
   }, []);
   
   useEffect(() => {
-    fetch('http://localhost:4000/locations')
+    fetch('/locations')
     .then(r => r.json())
     .then(setLocations)
-    fetch('http://localhost:4000/lodgings')
+    fetch('/lodgings')
     .then(r => r.json())
     .then(setLodgings)
   }, [])
+
+  function handleNewLocation(newLocation) {
+    setLocations([...locations, newLocation])
+    setUser([...user.locations, newLocation])
+
+  }
+
+  function handleNewLodging(newLodging) {
+    setLodgings([...lodgings, newLodging])
+    setUser({...user, lodgings: [...user.lodgings, newLodging]})
+  }
   
   function handleDeleteLodging(id) {
     const updatedLodgings = lodgings.filter(lodgings => lodgings.id !== id)
@@ -48,7 +64,13 @@ function App() {
     setUser({...user, lodgings: updateUserLodgings})
   }
 
+  if (loading) {
+    return <div>Loading...</div>
+  }
 
+  console.log(lodgings)
+  console.log(locations)
+  console.log(user)
   return (
     <div className="App">
       <Router>
@@ -66,6 +88,11 @@ function App() {
               onHandleDelete={handleDeleteLodging} 
               /> } />
               
+              <Route 
+              path="/locations/add" 
+              element={<AddLocation onNewLocation={handleNewLocation} user={user} />} 
+              />
+
               {/* <Route 
               path="/locations/:id/edit" 
               element={
@@ -74,19 +101,17 @@ function App() {
               onHandleUpdate={handleUpdate} 
               onHandleDelete={handleDeleteLocation}
               />} />
+                */}
 
               <Route 
-              path="/locations/add" 
-              element={<AddLocation onNewLocation={handleNewLocation} />} 
-              /> */}
-
-              {/* <Route 
-              path="/lodgings/:id" 
+              path="/lodgings/add" 
               element={
               <AddLodging 
-              // onNewLodging={handleNewLodging} 
-              locations={locations} />} 
-              /> */}
+              onNewLodging={handleNewLodging} 
+              locations={locations} 
+              user={user}
+              />} 
+              /> 
           <Route />
         </Routes>
       </Router>

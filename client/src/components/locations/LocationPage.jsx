@@ -7,30 +7,31 @@ function LocationPage({onHandleDelete, user}) {
 const params = useParams()
 const locationId = parseInt(params.id)
 
-const userLocationObj = user.locations.find(location => location.id === locationId)
-const stays = userLocationObj.lodgings.filter(lodging => lodging.user_id === user.id)
+const userLocationObj = () => user.locations.find(location => location.id === locationId)
+const stays = () => userLocationObj().lodgings.filter(lodging => lodging.user_id === user.id)
 
-const listStays = () => (stays.map(stay => (
+const listStays = () => (stays().map(stay => (
     <LodgingTile 
     key={stay.id} 
     stay={stay} 
     onHandleDelete={onHandleDelete} 
     />
 )))
+console.log(user)
 
 return (
     <div>
         
-        {userLocationObj ? 
+        {user ? 
         <div>
-            <h1>{userLocationObj.name}</h1>
+            <h1>{userLocationObj().name}</h1>
             {listStays()}
-            {/* <Link to={`/lodgings/${locationId}`} >
+            <Link to={`/lodgings/add`} >
                 <Button>Add new lodging</Button>
-            </Link> */}
+            </Link>
             
         </div>
-         : "" }
+         : "Loading" }
     </div>
     )
 }
