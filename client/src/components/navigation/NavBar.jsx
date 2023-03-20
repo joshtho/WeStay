@@ -7,7 +7,7 @@ function NavBar({loggedIn, user, setUser, setLoggedIn}) {
     const navigate = useNavigate()
     
     function handleLogout() {
-        fetch("http://localhost:4000/logout", { method: "DELETE" }).then((r) => {
+        fetch("/logout", { method: "DELETE" }).then((r) => {
             if (r.ok) {
             setLoggedIn(false)
             navigate("/")

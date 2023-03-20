@@ -9,8 +9,8 @@ class LocationsController < ApplicationController
     end
 
     def create
-        location = @current_user.locations.create!(location_params)
-        render json: location, status: :created
+        location = Location.create!(location_params)
+        render json: location, except: [:lodgings], status: :created
     end
 
     def update

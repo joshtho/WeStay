@@ -1,6 +1,9 @@
 import React from 'react'
 
-function HomePage() {
+function HomePage({loading}) {
+  if (loading) {
+    return <div>Loading...</div>
+  }
   return (
     <div>
     <h1>Plan your stay</h1>

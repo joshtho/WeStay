@@ -2,5 +2,9 @@ class Lodging < ApplicationRecord
   belongs_to :location
   belongs_to :user
 
-  # validations also in front end, error messages
+  validates :dates, presence: true
+  validates :guests, presence: true
+  validates :image, presence: true
+  validates :link, presence: true
+  validates :season, presence: true
 end

@@ -16,7 +16,7 @@ class LodgingsController < ApplicationController
     def update
         lodging = Lodging.find(params[:id])
         lodging.update!(lodging_params)
-        render json:lodging, status: :accepted
+        render json: lodging, status: :accepted
     end
 
     def destroy

@@ -1,11 +1,9 @@
 import React from 'react'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 function LodgingTile({stay, onHandleDelete}) {
-  const params = useParams()
-  const locationId = parseInt(params.id)
   const navigate = useNavigate()
   
   function handleLinkClick() {
@@ -17,9 +15,8 @@ function LodgingTile({stay, onHandleDelete}) {
       method: "DELETE",
     })
     onHandleDelete(stay.id)
-    navigate(`/locations/${locationId}`)
+    navigate(`/locations`)
   }
-
 
   return (
     <Card style={{ width: '18rem' }}>
@@ -32,6 +29,9 @@ function LodgingTile({stay, onHandleDelete}) {
         </Card.Text>
         <Button onClick={handleLinkClick}>Go to the link</Button>
         <Button onClick={handleDeleteClick}>Delete stay</Button>
+        <Link to={`/lodgings/${stay.id}/edit`}>
+            <Button>Edit</Button>
+        </Link>
       </Card.Body>
     </Card>
   );

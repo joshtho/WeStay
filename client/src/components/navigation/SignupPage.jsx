@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useNavigate } from 'react-router-dom';
 
-function SignupPage({setLoggedIn, setUser}) {
+function SignupPage({setLoggedIn, setUser, setLoading}) {
     const navigate = useNavigate()
     const [signupData, setSignupData] = useState({
         username: "",
@@ -13,8 +13,8 @@ function SignupPage({setLoggedIn, setUser}) {
 
     function handleSignupSubmit(e) {
         e.preventDefault()
-
-        fetch(`http://localhost:4000/signup`, {
+        setLoading(true)
+        fetch(`/signup`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
@@ -32,6 +32,7 @@ function SignupPage({setLoggedIn, setUser}) {
               r.json().then((err) => setErrors(err.errors));
             }
           })
+          setLoading(false)
     }
   return (
     <Form onSubmit={handleSignupSubmit} >
@@ -58,9 +59,7 @@ function SignupPage({setLoggedIn, setUser}) {
         onChange={e => setSignupData({...signupData, password: e.target.value})}
         />
       </Form.Group>
-      {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" label="Check me out" />
-      </Form.Group> */}
+      
       <Button variant="primary" type="submit">
         Submit
       </Button>
