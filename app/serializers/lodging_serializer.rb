@@ -1,6 +1,6 @@
 class LodgingSerializer < ActiveModel::Serializer
-  attributes :id, :link, :guests, :season, :dates, :image, :location
+  attributes :id, :link, :guests, :season, :dates, :image, :location, :user
   has_one :location
-  has_one :user
+  belongs_to :user
 end
 

@@ -13,6 +13,7 @@ class UsersController < ApplicationController
 
     def show
         render json: @current_user
+        # , include: ['locations', 'lodgings', 'locations.lodgings', 'locations.user', 'lodgings.location', 'lodgings.user' ] 
     end
 
     private
