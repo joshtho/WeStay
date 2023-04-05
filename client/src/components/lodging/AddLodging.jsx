@@ -33,7 +33,7 @@ function AddLodging({onNewLodging, locations, user, onNewLocation, setLoading}) 
             if (r.ok) {
                 r.json().then(newLodging => {
                     onNewLodging(newLodging)
-                    navigate(`/locations`)
+                    navigate(`/lodgings`)
                 })
             } else {
             r.json().then((err) => setErrors(err.errors));
