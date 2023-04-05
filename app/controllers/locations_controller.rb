@@ -1,6 +1,6 @@
 class LocationsController < ApplicationController
     def index
-        render json: Location.all
+        render json: Location.all 
     end
 
     def show 

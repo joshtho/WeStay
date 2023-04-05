@@ -8,6 +8,7 @@ import EditLodging from './components/lodging/EditLodging';
 import AddLodging from './components/lodging/AddLodging';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SignupPage from './components/navigation/SignupPage';
+import LodgingList from './components/lodging/LodgingList';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
   const [locations, setLocations] = useState([])
   const [lodgings, setLodgings] = useState([])
   const [loading, setLoading] = useState(true)
+  const [suggest, setSuggest] = useState(false)
 
   useEffect(() => {
     fetch('/locations')
@@ -73,31 +75,16 @@ function App() {
   if (loading) {
     return <div>Loading...</div>
   }
-
-  console.log(lodgings)
-  console.log(locations)
-  console.log(user)
   return (
     <div className="App">
       <Router>
-      <NavBar loggedIn={loggedIn} user={user} setUser={setUser} setLoggedIn={setLoggedIn} />
+      <NavBar loggedIn={loggedIn} user={user} setUser={setUser} setLoggedIn={setLoggedIn} setSuggest={setSuggest} setLoading={setLoading}/>
       <Routes>
           <Route path="/" element={<HomePage loading={loading} />} />
-          <Route path="/login" element={<LoginPage setLoggedIn={setLoggedIn} setUser={setUser} setLoading={setLoading} />} />
+          <Route path="/login" element={<LoginPage setLoggedIn={setLoggedIn} setUser={setUser} />} />
           <Route path="/signup" element={<SignupPage setLoggedIn={setLoggedIn} setUser={setUser} setLoading={setLoading} />} />
-          <Route 
-            path="/locations" 
-            element={
-              <LocationsList 
-              locations={locations} 
-              user={user} 
-              onHandleDelete={handleDeleteLodging}
-              loading={loading}
-              setLoading={setLoading}
-              />
-            } 
-          />
-
+          <Route path="/locations" element={<LocationsList locations={locations} />} />
+          <Route path="/lodgings" element={<LodgingList user={user} onHandleDelete={handleDeleteLodging}/>} />
           <Route 
             path="/lodgings/:id/edit" 
             element={
@@ -109,7 +96,6 @@ function App() {
               />
             } 
           />
-               
           <Route 
             path="/lodgings/add" 
             element={
@@ -122,8 +108,6 @@ function App() {
               />
             } 
           /> 
-
-          <Route />
         </Routes>
       </Router>
     </div>

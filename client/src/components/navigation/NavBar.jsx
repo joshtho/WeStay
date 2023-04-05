@@ -3,7 +3,7 @@ import Nav from 'react-bootstrap/Nav';
 import {Link, useNavigate} from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 
-function NavBar({loggedIn, user, setUser, setLoggedIn}) {
+function NavBar({loggedIn, user, setUser, setLoggedIn, setSuggest, setLoading}) {
     const navigate = useNavigate()
     
     function handleLogout() {
@@ -26,8 +26,13 @@ function NavBar({loggedIn, user, setUser, setLoggedIn}) {
                 </Link>
             </Nav.Item>
             <Nav.Item>
-                <Link to="/locations">
+                <Link to="/lodgings">
                     <Button>My stays</Button>
+                </Link>
+            </Nav.Item>
+            <Nav.Item>
+                <Link to="/locations">
+                    <Button>Popular Places</Button>
                 </Link>
             </Nav.Item>
             <Nav.Item>
