@@ -3,7 +3,7 @@ import Nav from 'react-bootstrap/Nav';
 import {Link, useNavigate} from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 
-function NavBar({loggedIn, user, setUser, setLoggedIn, setSuggest, setLoading}) {
+function NavBar({loggedIn, user, setUser, setLoggedIn}) {
     const navigate = useNavigate()
     
     function handleLogout() {
@@ -36,7 +36,7 @@ function NavBar({loggedIn, user, setUser, setLoggedIn, setSuggest, setLoading}) 
                 </Link>
             </Nav.Item>
             <Nav.Item>
-                    <Button onClick={handleLogout}>Logout</Button>
+                <Button onClick={handleLogout}>Logout</Button>
             </Nav.Item>
            Welcome {user.username}!
         </Nav> :

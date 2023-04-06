@@ -17,7 +17,6 @@ function App() {
   const [locations, setLocations] = useState([])
   const [lodgings, setLodgings] = useState([])
   const [loading, setLoading] = useState(true)
-  const [suggest, setSuggest] = useState(false)
 
   useEffect(() => {
     fetch('/locations')
@@ -78,7 +77,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-      <NavBar loggedIn={loggedIn} user={user} setUser={setUser} setLoggedIn={setLoggedIn} setSuggest={setSuggest} setLoading={setLoading}/>
+      <NavBar loggedIn={loggedIn} user={user} setUser={setUser} setLoggedIn={setLoggedIn} />
       <Routes>
           <Route path="/" element={<HomePage loading={loading} />} />
           <Route path="/login" element={<LoginPage setLoggedIn={setLoggedIn} setUser={setUser} />} />
