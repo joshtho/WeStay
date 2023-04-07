@@ -14,8 +14,8 @@ function LodgingTile({stay, onHandleDelete}) {
     fetch(`/lodgings/${stay.id}`, {
       method: "DELETE",
     })
-    onHandleDelete(stay.id)
-    navigate(`/locations`)
+    onHandleDelete(stay)
+    navigate(`/lodgings`)
   }
 
   return (

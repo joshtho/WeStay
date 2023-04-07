@@ -11,6 +11,10 @@ function SuggestLocationTile({location}) {
       <Card.Body>
         <Card.Title>{location.name}</Card.Title>
         <Card.Text>{location.description}</Card.Text>
+        Others are staying here
+        {location.users.map(user => (
+          <h5 key={user.created_at}>{user.username}</h5>
+        ))}
             <Link to="/lodgings/add">
               <Button>Add a stay here</Button>
             </Link>

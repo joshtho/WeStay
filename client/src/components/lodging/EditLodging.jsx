@@ -3,11 +3,11 @@ import { useParams, useNavigate } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form';
 
-function EditLodging({lodgings, onHandleUpdate, onHandleDelete, setLoading}) {
+function EditLodging({user, onHandleUpdate, onHandleDelete, setLoading}) {
     const params = useParams()
     const navigate = useNavigate()
     const lodgingId = parseInt(params.id)
-    const currentLodging = lodgings.find(lodging => lodging.id === lodgingId)
+    const currentLodging = user.lodgings.find(lodging => lodging.id === lodgingId)
     const [locationData, setLocationData] = useState({
       dates: currentLodging.dates,
       guests: currentLodging.guests,
@@ -29,7 +29,7 @@ function EditLodging({lodgings, onHandleUpdate, onHandleDelete, setLoading}) {
         .then((r) => r.json())
         .then((updatedLocation) => {
           onHandleUpdate(updatedLocation)
-          navigate('/locations')
+          navigate('/lodgings')
 
         })
         setLoading(false)
@@ -39,8 +39,8 @@ function EditLodging({lodgings, onHandleUpdate, onHandleDelete, setLoading}) {
       fetch(`/lodgings/${lodgingId}`, {
           method: "DELETE",
       })
-      onHandleDelete(lodgingId)
-      navigate('/locations')
+      onHandleDelete(currentLodging)
+      navigate('/lodgings')
   }
 
   return (

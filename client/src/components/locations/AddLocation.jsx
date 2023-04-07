@@ -4,12 +4,17 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import Form from 'react-bootstrap/Form';
 
 
-function AddLocation({onNewLocation, selectCity, setLoading, loading}) {
+function AddLocation({onNewLocation, selectCity, setLoading, loading, user}) {
     const [show, setShow] = useState(false);
     const [locationData, setLocationData] = useState({
     name: "",
     description: "",
-    image: "", 
+    image: "",
+    users: [{
+      id: user.id,
+      username: user.username
+
+    }] 
     })
     const [locationErrors, setLocationErrors] = useState([])
 

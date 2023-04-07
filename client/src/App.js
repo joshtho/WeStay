@@ -13,18 +13,15 @@ import LodgingList from './components/lodging/LodgingList';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false)
-  const [user, setUser] = useState({})
-  const [locations, setLocations] = useState([])
-  const [lodgings, setLodgings] = useState([])
+  const [user, setUser] = useState({lodgings: []})
+  const [locations, setLocations] = useState([{users: []}])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     fetch('/locations')
     .then(r => r.json())
     .then(setLocations)
-    fetch('/lodgings')
-    .then(r => r.json())
-    .then(setLodgings)
+    
     // auto-login
     fetch("/me").then((r) => {
       if (r.ok) {
@@ -46,28 +43,26 @@ function App() {
   }
 
   function handleNewLodging(newLodging) {
-    setLodgings([...lodgings, newLodging])
     setUser({...user, lodgings: [...user.lodgings, newLodging]})
   }
   
-  function handleDeleteLodging(id) {
-    const updatedLodgings = lodgings.filter(lodgings => lodgings.id !== id)
-    const updateUserLodgings = user.lodgings.filter(lodgings => lodgings.id !== id)
-    setLodgings(updatedLodgings)
+  function handleDeleteLodging(lodging) {
+    const updateUserLodgings = user.lodgings.filter(lodgings => lodgings.id !== lodging.id)
+    const updatedLocationUsers = locations.find(location => location.id === lodging.location.id).users.filter(user => user.id !== lodging.user.id )
+    const updatedLocations = locations.map(location => {
+      if (location.id === lodging.location.id) {
+       return {...location, users: [updatedLocationUsers]}
+      } else {
+        return location
+      }
+    })
+
     setUser({...user, lodgings: updateUserLodgings})
+    setLocations(updatedLocations)
   }
 
   function handleUpdate(updatedObj) {
-    const updatedLodgings = lodgings.map(lodging => {
-      if (lodging.id === updatedObj.id) {
-        return updatedObj
-      } else {
-        return lodging
-      }
-    })
-    
-    const updateUserLodgings = user.lodgings.filter(lodgings => lodgings.id !== updatedObj.id)
-    setLodgings(updatedLodgings)
+    const updateUserLodgings = user.lodgings.filter(lodging => lodging.id !== updatedObj.id)
     setUser({...user, lodgings: [...updateUserLodgings, updatedObj]})
   }
 
@@ -88,7 +83,7 @@ function App() {
             path="/lodgings/:id/edit" 
             element={
               <EditLodging 
-              lodgings={lodgings} 
+              user={user} 
               onHandleUpdate={handleUpdate} 
               onHandleDelete={handleDeleteLodging}
               setLoading={setLoading}

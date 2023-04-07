@@ -4,15 +4,15 @@ import { Link } from 'react-router-dom'
 import SuggestLocationTile from '../locations/SuggestLocationTile'
 
 function LocationsList({locations}) {
-  
+  console.log(locations)
   return (
     <div className='row'>
-        { locations ?
+        {
         locations.map(location => (
           <>
           <SuggestLocationTile key={location.id} location={location} />
           </>
-        )) : "Loading..."
+        )) 
         }
         <h1>Add a stay!</h1>
         <Link to="/lodgings/add">

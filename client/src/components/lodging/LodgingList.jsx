@@ -4,11 +4,10 @@ import { Link } from 'react-router-dom'
 import LodgingTile from '../lodging/LodgingTile'
 
 function LodgingList({user, onHandleDelete }) {
-  const userStays = () => user.lodgings
   
   return (
     <div className='row'>
-        {userStays().map(lodging => (
+        {user.lodgings.map(lodging => (
               <>
               <h2>{lodging.location.name}</h2>
               <LodgingTile key={lodging.id} stay={lodging} onHandleDelete={onHandleDelete} />

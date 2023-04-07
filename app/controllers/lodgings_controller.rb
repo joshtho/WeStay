@@ -9,12 +9,12 @@ class LodgingsController < ApplicationController
     end
 
     def create
-        lodging = Lodging.create!(lodging_params)
+        lodging = @current_user.lodgings.create!(lodging_params)
         render json: lodging, status: :created
     end
 
     def update
-        lodging = Lodging.find(params[:id])
+        lodging = @current_user.lodgings.find(params[:id])
         lodging.update!(lodging_params)
         render json: lodging, status: :accepted
     end

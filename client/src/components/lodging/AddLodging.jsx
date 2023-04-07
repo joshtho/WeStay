@@ -73,7 +73,8 @@ function AddLodging({onNewLodging, locations, user, onNewLocation, setLoading}) 
                     <AddLocation 
                     onNewLocation={onNewLocation} 
                     selectCity={selectCity} 
-                    setLoading={setLoading} 
+                    setLoading={setLoading}
+                    user={user} 
                     />
                 </>
                 }
