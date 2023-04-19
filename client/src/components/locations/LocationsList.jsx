@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import SuggestLocationTile from '../locations/SuggestLocationTile'
 
 function LocationsList({locations}) {
-  console.log(locations)
+
   return (
     <div className='row'>
         {

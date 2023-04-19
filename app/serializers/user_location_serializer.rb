@@ -1,5 +1,5 @@
 class UserLocationSerializer < ActiveModel::Serializer
-  attributes :id, :name, :image, :description, :lodgings
+  attributes :id, :username
   
   # def lodgings
   #   Lodging.all.map { |lodge| self.object.id == lodge.user_id and lodge.location_id == self.object.id}

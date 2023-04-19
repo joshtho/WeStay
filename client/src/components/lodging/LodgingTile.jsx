@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { useNavigate, Link } from 'react-router-dom';
 
-function LodgingTile({stay, onHandleDelete}) {
+function LodgingTile({stay, onHandleDelete, setLoading}) {
   const navigate = useNavigate()
   
   function handleLinkClick() {
@@ -17,10 +17,13 @@ function LodgingTile({stay, onHandleDelete}) {
     onHandleDelete(stay)
     navigate(`/lodgings`)
   }
-
+  
   return (
     <Card style={{ width: '18rem' }}>
       <Card.Body>
+        <Card.Text>
+          Location: {stay.location.name}
+        </Card.Text>
       <Card.Img variant="top" src={stay.image} />
         <Card.Title>{stay.season}</Card.Title>
         <Card.Title>{stay.dates}</Card.Title>

@@ -14,7 +14,7 @@ function LoginPage({setLoggedIn, setUser}) {
     function handleLoginSubmit(e) {
         e.preventDefault()
 
-        fetch(`http://localhost:4000/login`, {
+        fetch(`/login`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"

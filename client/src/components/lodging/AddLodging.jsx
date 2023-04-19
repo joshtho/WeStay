@@ -31,8 +31,8 @@ function AddLodging({onNewLodging, locations, user, onNewLocation, setLoading}) 
         })
         .then((r) => {
             if (r.ok) {
-                r.json().then(newLodging => {
-                    onNewLodging(newLodging)
+                r.json().then(newLodgingObj => {
+                    onNewLodging(newLodgingObj)
                     navigate(`/lodgings`)
                 })
             } else {

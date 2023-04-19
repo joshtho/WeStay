@@ -14,7 +14,7 @@ import LodgingList from './components/lodging/LodgingList';
 function App() {
   const [loggedIn, setLoggedIn] = useState(false)
   const [user, setUser] = useState({lodgings: []})
-  const [locations, setLocations] = useState([{users: []}])
+  const [locations, setLocations] = useState([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -51,7 +51,7 @@ function App() {
     const updatedLocationUsers = locations.find(location => location.id === lodging.location.id).users.filter(user => user.id !== lodging.user.id )
     const updatedLocations = locations.map(location => {
       if (location.id === lodging.location.id) {
-       return {...location, users: [updatedLocationUsers]}
+       return {...location, users: updatedLocationUsers}
       } else {
         return location
       }
@@ -78,7 +78,7 @@ function App() {
           <Route path="/login" element={<LoginPage setLoggedIn={setLoggedIn} setUser={setUser} />} />
           <Route path="/signup" element={<SignupPage setLoggedIn={setLoggedIn} setUser={setUser} setLoading={setLoading} />} />
           <Route path="/locations" element={<LocationsList locations={locations} />} />
-          <Route path="/lodgings" element={<LodgingList user={user} onHandleDelete={handleDeleteLodging}/>} />
+          <Route path="/lodgings" element={<LodgingList user={user} onHandleDelete={handleDeleteLodging} setLoading={setLoading}/>} />
           <Route 
             path="/lodgings/:id/edit" 
             element={

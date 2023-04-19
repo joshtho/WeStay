@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 
 function SuggestLocationTile({location}) {
-    
+  
   return (
     <Card style={{ width: '18rem' }} className='column' >
       <Card.Img variant="top" src={location.image} />
@@ -12,8 +12,8 @@ function SuggestLocationTile({location}) {
         <Card.Title>{location.name}</Card.Title>
         <Card.Text>{location.description}</Card.Text>
         Others are staying here
-        {location.users.map(user => (
-          <h5 key={user.created_at}>{user.username}</h5>
+        {location.unique_users.map(user => (
+          <h5 key={user.index}>{user}</h5>
         ))}
             <Link to="/lodgings/add">
               <Button>Add a stay here</Button>

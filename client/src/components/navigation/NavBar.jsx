@@ -27,7 +27,7 @@ function NavBar({loggedIn, user, setUser, setLoggedIn}) {
             </Nav.Item>
             <Nav.Item>
                 <Link to="/lodgings">
-                    <Button>My stays</Button>
+                    <Button >My stays</Button>
                 </Link>
             </Nav.Item>
             <Nav.Item>
