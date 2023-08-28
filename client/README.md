@@ -1,6 +1,6 @@
-# Plan your stay: Vacation app
+# WeStay: Vacation app
 
-Plan your stay is a website for saving information on different airbnbs, vrbo, or other travel website lodgings. Do you ever run into a cool airbnb that you dont want to forget about? Add it to plan your stay and see all your favorite dream vacations.
+WeStay is a website for saving information on different airbnbs, vrbo, or other travel website lodgings. Do you ever run into a cool airbnb that you dont want to forget about? Add it to WeStay and see all your favorite dream vacations.
 
 ## Installation
 

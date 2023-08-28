@@ -44,6 +44,18 @@ function App() {
 
   function handleNewLodging(newLodging) {
     setUser({...user, lodgings: [...user.lodgings, newLodging]})
+    const locationUsers = locations.find(location => location.id === newLodging.location.id).unique_users
+    if (locationUsers.includes(newLodging.user.username)) {} else {
+      return setLocations(locations.map(location => {
+        if (location.id === newLodging.location.id) {
+          return {...location, unique_users: [...locationUsers, newLodging.user.username]}
+        } else {
+          return location
+        }
+      })
+      )
+      
+    }
   }
   
   function handleDeleteLodging(lodging) {
@@ -69,6 +81,7 @@ function App() {
   if (loading) {
     return <div>Loading...</div>
   }
+
   return (
     <div className="App">
       <Router>

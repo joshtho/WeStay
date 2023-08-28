@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  # get "/locations/:username", to: "locations#search"
+  get "/locations/lodging_length/:n", to: "locations#lodging_length"
   
   resources :lodgings
   resources :locations
