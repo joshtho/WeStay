@@ -13,6 +13,20 @@ austin = Location.create(
         image: "https://www.travelandleisure.com/thmb/bggU8kobL7GC0jIaY7g7XV_KEI4=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/skyline-river-austin-texas-ATXTHINGS0122-4f095568988a408b8eadf93c530f1344.jpg"
 
     })
+south_padre = Location.create(
+    {
+        name: "South Padre, TX",
+        description: "With 34 miles of beautiful white sand and clear emerald water, South Padre Island is one of the world's most exquisite barrier islands and the only tropical Island in Texas. Calm weather and water and more than 300 days of sunshine make South Padre Island a great place to live and visit all year.",
+        image: "https://assets.rebelmouse.io/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpbWFnZSI6Imh0dHBzOi8vYXNzZXRzLnJibC5tcy8yOTk5MjE0Ny9vcmlnaW4ucG5nIiwiZXhwaXJlc19hdCI6MTcwODM4NDIwNn0.R71i2YfdsyoOQr63nBj_gS3dGH-Mk230wdre3iNWQJA/img.png?width=1200&height=800&quality=85&coordinates=158%2C0%2C402%2C0"
+    }
+)
+new_braunfels = Location.create(
+    {
+        name: "New Braunfels, TX",
+        description: "New Braunfels is also home to the world-famous Schlitterbahn Waterpark, Texas' oldest dancehall Gruene Hall, Texas' oldest bakery Naeglin's Bakery, the 10-day salute to sausage known as Wurstfest, as well as the nearby Natural Bridge Caverns & Wildlife Ranch, and the Texas Ski Ranch.",
+        image: "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_2112,w_2857,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1080/Guadalupe_ChrisZebo_TravelTexas_xiglqu.jpg"
+    }
+)
 breck = Location.create(
     {
         name: "Breckenridge, CO",
@@ -28,20 +42,7 @@ cloudcroft = Location.create(
     }
 )
 
-new_braunfels = Location.create(
-    {
-        name: "New Braunfels, TX",
-        description: "New Braunfels is also home to the world-famous Schlitterbahn Waterpark, Texas' oldest dancehall Gruene Hall, Texas' oldest bakery Naeglin's Bakery, the 10-day salute to sausage known as Wurstfest, as well as the nearby Natural Bridge Caverns & Wildlife Ranch, and the Texas Ski Ranch.",
-        image: "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_2112,w_2857,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1080/Guadalupe_ChrisZebo_TravelTexas_xiglqu.jpg"
-    }
-)
-south_padre = Location.create(
-    {
-        name: "South Padre, TX",
-        description: "With 34 miles of beautiful white sand and clear emerald water, South Padre Island is one of the world's most exquisite barrier islands and the only tropical Island in Texas. Calm weather and water and more than 300 days of sunshine make South Padre Island a great place to live and visit all year.",
-        image: "https://assets.rebelmouse.io/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpbWFnZSI6Imh0dHBzOi8vYXNzZXRzLnJibC5tcy8yOTk5MjE0Ny9vcmlnaW4ucG5nIiwiZXhwaXJlc19hdCI6MTcwODM4NDIwNn0.R71i2YfdsyoOQr63nBj_gS3dGH-Mk230wdre3iNWQJA/img.png?width=1200&height=800&quality=85&coordinates=158%2C0%2C402%2C0"
-    }
-)
+
 
 
 # Location.create([

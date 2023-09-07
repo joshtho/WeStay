@@ -11,15 +11,17 @@ function LodgingList({user, onHandleDelete, setLoading }) {
       </>
     ))
   return (
+    <>
     <div className='row'>
         {userLodgings()}
-        <h1>Add a stay!</h1>
-        <Link to="/lodgings/add">
-            <Button>Add Lodging</Button>
-        </Link>
-
+        
     </div>
+    <br></br>
+        <Link to="/lodgings/add">
+            <Button className='btm-btn'>Add new stay</Button>
+        </Link>
+    </>
   )
 }
 
-export default LodgingList
+export default LodgingList;

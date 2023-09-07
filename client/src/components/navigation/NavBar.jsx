@@ -27,7 +27,7 @@ function NavBar({user, setUser, setLoggedIn}) {
     <Navbar className='nav-font' >
         <Container>
           <Link to='/' style={{textDecoration: "none"}}>
-            <Navbar.Brand >WeStay</Navbar.Brand>
+            <Navbar.Brand className='font-head' >░W░e░S░t░a░y░</Navbar.Brand>
           </Link>
             <Nav.Link as={Link} to='/locations' >Location List</Nav.Link>
             <Nav.Link as={Link} to='/lodgings' >Lodging List</Nav.Link>
