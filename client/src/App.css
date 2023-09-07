@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+.nav-font {
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 300;
+  font-size: larger;
+}
+
+.dropdown-menu[data-bs-popper].dropdown {
+  left: -100px;
+}
