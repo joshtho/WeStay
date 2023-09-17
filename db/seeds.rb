@@ -31,7 +31,7 @@ breck = Location.create(
     {
         name: "Breckenridge, CO",
         description: "Much like Aspen and Vail, Breckenridge is a town that is known for its luxe ski resort, stunning mountain scenery, and endless recreation. The former mining town is lined with hundreds of restaurants, shops, and saloons. Breck attracts visitors from around the world.",
-        image: "https://www.uncovercolorado.com/wp-content/uploads/2021/01/downtown-breckenridge-colorado-at-dawn.jpg"
+        image: "https://cdn.shortpixel.ai/spai/q_lossy+w_563+to_webp+ret_img/www.treksplorer.com/wp-content/uploads/things-to-do-in-breckenridge.jpg"
     }
 )
 cloudcroft = Location.create(
@@ -125,7 +125,7 @@ breck1 = Lodging.create(
         link:   "https://www.airbnb.com/rooms/771075289375584142?adults=10&check_in=2023-04-16&check_out=2023-04-20&federated_search_id=97f6b8dd-3b67-465d-9331-5b73ae8121dd&source_impression_id=p3_1679171280_xlzrLOVhzepIDdNh",
         guests: 10,
         dates: "4/16/2023-4/20/2023",
-        image: "https://a0.muscache.com/im/pictures/prohost-api/Hosting-771075289375584142/original/457a7bff-35a0-4b3e-9187-9de71f449ac8.png?im_w=1200",
+        image: "https://cdn.shortpixel.ai/spai/q_lossy+w_563+to_webp+ret_img/www.treksplorer.com/wp-content/uploads/things-to-do-in-breckenridge.jpg",
         location_id: breck.id,
         user_id: user1.id
     }

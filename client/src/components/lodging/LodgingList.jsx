@@ -2,6 +2,7 @@ import React from 'react'
 import Button from 'react-bootstrap/Button'
 import { Link } from 'react-router-dom'
 import LodgingTile from '../lodging/LodgingTile'
+import Container from 'react-bootstrap/esm/Container'
 
 function LodgingList({user, onHandleDelete, setLoading }) {
   const userLodgings = () => 
@@ -12,10 +13,10 @@ function LodgingList({user, onHandleDelete, setLoading }) {
     ))
   return (
     <>
-    <div className='row'>
+    <Container className='card-grid'>
         {userLodgings()}
         
-    </div>
+    </Container>
     <br></br>
         <Link to="/lodgings/add">
             <Button className='btm-btn'>Add new stay</Button>
