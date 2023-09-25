@@ -1,17 +1,20 @@
 import React from 'react'
+import Button from 'react-bootstrap/Button'
 
 function HomePage({loading}) {
   if (loading) {
     return <div>Loading...</div>
   }
   return (
-    <div>
-    <h1>WeStay</h1>
-      <img alt='groupPhoto' src='https://static01.nyt.com/images/2019/07/14/travel/14TIPS/63f2d864d66c4a119b036e8d4c3a5978-articleLarge.jpg?quality=75&auto=webp&disable=upscale' />
-      <p>WeStay is a website that allows you to save vacation ideas 
-        with a link to the lodging you have your eye on.
-      </p>
+    <div className='home-image'>
+    {/* <h1>WeStay</h1> */}
+      {/* <img 
+        className='img-home' 
+        alt='groupPhoto' 
+        src='https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dHJhdmVsJTIwbGFuZHNjYXBlfGVufDB8fDB8fHww&auto=format&fit=crop&w=400&q=60' /> */}
+        <Button className="home-btn" variant="success">Enter</Button>
     </div>
+      
   )
 }
 
