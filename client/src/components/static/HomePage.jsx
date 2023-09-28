@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/esm/Container'
 import { useNavigate } from 'react-router-dom'
 
-function HomePage({loading}) {
+function HomePage({loading, loggedIn}) {
   const navigate = useNavigate()
   function handleClick() {
     navigate('/login')
@@ -16,7 +16,15 @@ function HomePage({loading}) {
       <Container className='container-home'>
       <h1 className='home-head'>Welcome to WeStay</h1>
       <br></br>
-      <Button onClick={handleClick} className="home-btn" variant="success">Enter</Button>
+      {loggedIn ? "" : 
+      <Button 
+      onClick={handleClick} 
+      className="home-btn" 
+      variant="success">
+        Enter
+      </Button>
+      }
+      
 
       </Container>
       {/* <img 

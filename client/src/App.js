@@ -87,7 +87,7 @@ function App() {
       <Router>
       <NavBar loggedIn={loggedIn} user={user} setUser={setUser} setLoggedIn={setLoggedIn} />
       <Routes>
-          <Route path="/" element={<HomePage loading={loading} />} />
+          <Route path="/" element={<HomePage loading={loading} loggedIn={loggedIn} />} />
           <Route path="/login" element={<LoginPage setLoggedIn={setLoggedIn} setUser={setUser} />} />
           <Route path="/signup" element={<SignupPage setLoggedIn={setLoggedIn} setUser={setUser} setLoading={setLoading} />} />
           <Route path="/locations" element={<LocationsList locations={locations} />} />

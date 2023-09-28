@@ -39,12 +39,12 @@ function SignupPage({setLoggedIn, setUser, setLoading}) {
     <Container>
 
     <Form onSubmit={handleSignupSubmit} >
-        <h1>Ready to plan your stay? Signup here</h1>
+        <h1>Ready to plan your stay?</h1>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Username</Form.Label>
         <Form.Control 
         type="email" 
-        placeholder="Enter username"
+        placeholder="Please create with email address"
         value={signupData.username}
         onChange={e => setSignupData({...signupData, username: e.target.value})}
         />
@@ -57,7 +57,7 @@ function SignupPage({setLoggedIn, setUser, setLoading}) {
         <Form.Label>Password</Form.Label>
         <Form.Control 
         type="password" 
-        placeholder="Password" 
+        placeholder="Create a Password" 
         value={signupData.password}
         onChange={e => setSignupData({...signupData, password: e.target.value})}
         />
@@ -73,7 +73,7 @@ function SignupPage({setLoggedIn, setUser, setLoading}) {
           ))
           : null
         }
-        
+
     </Form>
   </Container>
   );
