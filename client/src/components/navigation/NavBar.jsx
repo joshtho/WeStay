@@ -24,7 +24,7 @@ function NavBar({user, setUser, setLoggedIn}) {
   return (
     <>
     {user && user.id ?
-    <Navbar className='nav-font' >
+    <Navbar variant='success' className='nav-font' >
         <Container>
           <Link to='/' style={{textDecoration: "none"}}>
             <Navbar.Brand className='font-head' >░W░e░S░t░a░y░</Navbar.Brand>

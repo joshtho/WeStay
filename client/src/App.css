@@ -94,8 +94,13 @@
   background-size: cover;
 }
 
-.home-btn {
-  position: fixed; /* or absolute */
-  top: 50%;
-  left: 50%;
+.container-home {
+  margin:auto;
+  text-align: center;
+  padding: 30%;
+}
+
+.home-head {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  
 }
