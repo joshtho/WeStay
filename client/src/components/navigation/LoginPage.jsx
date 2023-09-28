@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import { useNavigate } from 'react-router-dom';
 
@@ -35,6 +36,8 @@ function LoginPage({setLoggedIn, setUser}) {
     }
 
   return (
+    <Container>
+
     <Form onSubmit={handleLoginSubmit} >
         <h1>Welcome back! Please Login</h1>
       <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -63,13 +66,14 @@ function LoginPage({setLoggedIn, setUser}) {
         Submit
       </Button>
       {
-      errors ? 
-      errors.map(error => (
+        errors ? 
+        errors.map(error => (
           <li>{error}</li>
           ))
-        : null
+          : null
         }
     </Form>
+    </Container>
   );
 }
 

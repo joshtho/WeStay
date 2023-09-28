@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Container from 'react-bootstrap/esm/Container';
 import { useNavigate } from 'react-router-dom';
 
 function SignupPage({setLoggedIn, setUser, setLoading}) {
@@ -35,6 +36,8 @@ function SignupPage({setLoggedIn, setUser, setLoading}) {
           setLoading(false)
     }
   return (
+    <Container>
+
     <Form onSubmit={handleSignupSubmit} >
         <h1>Ready to plan your stay? Signup here</h1>
       <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -64,13 +67,15 @@ function SignupPage({setLoggedIn, setUser, setLoading}) {
         Submit
       </Button>
       {
-      errors ? 
-      errors.map(error => (
+        errors ? 
+        errors.map(error => (
           <li>{error}</li>
           ))
-        : null
+          : null
         }
+        
     </Form>
+  </Container>
   );
 }
 
