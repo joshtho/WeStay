@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
+import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import { useNavigate } from 'react-router-dom';
 
@@ -36,15 +37,16 @@ function LoginPage({setLoggedIn, setUser}) {
     }
 
   return (
-    <Container>
+    
+    <Card className='mx-auto' style={{marginTop: '25px'}}>
 
-    <Form onSubmit={handleLoginSubmit} >
-        <h1>Welcome back! Please Login</h1>
+    <Form className='form-container' onSubmit={handleLoginSubmit} >
+        <h1>Please Login</h1>
       <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Username</Form.Label>
+        <Form.Label>Email</Form.Label>
         <Form.Control 
         type="email" 
-        placeholder="Enter username"
+        placeholder="Enter email"
         value={loginData.username}
         onChange={e => setLoginData({...loginData, username: e.target.value})}
         />
@@ -73,7 +75,8 @@ function LoginPage({setLoggedIn, setUser}) {
           : null
         }
     </Form>
-    </Container>
+    </Card>
+    
   );
 }
 

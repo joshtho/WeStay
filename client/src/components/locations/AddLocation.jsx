@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import Form from 'react-bootstrap/Form';
 
@@ -53,6 +54,8 @@ function AddLocation({onNewLocation, selectCity, setLoading, loading, user}) {
 
   return (
     <>
+    <Container>
+
       <Button variant="primary" onClick={handleShow}>
         Add Location
       </Button>
@@ -101,6 +104,7 @@ function AddLocation({onNewLocation, selectCity, setLoading, loading, user}) {
             </Form>
         </Offcanvas.Body>
       </Offcanvas>
+    </Container>
     </>
   );
 }

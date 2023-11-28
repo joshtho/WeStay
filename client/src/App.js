@@ -83,7 +83,7 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div >
       <Router>
       <NavBar loggedIn={loggedIn} user={user} setUser={setUser} setLoggedIn={setLoggedIn} />
       <Routes>

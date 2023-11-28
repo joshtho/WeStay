@@ -24,16 +24,16 @@ function NavBar({user, setUser, setLoggedIn}) {
   return (
     <>
     {user && user.id ?
-    <Navbar variant='success' className='nav-font' >
+    <Navbar  >
         <Container>
-          <Link to='/' style={{textDecoration: "none"}}>
-            <Navbar.Brand className='font-head' >░W░e░S░t░a░y░</Navbar.Brand>
+          <Link to='/' style={{textDecoration: "none", color: 'white'}}>
+            <Navbar.Brand >░W░e░S░t░a░y░</Navbar.Brand>
           </Link>
             <Nav.Link as={Link} to='/locations' >Location List</Nav.Link>
             <Nav.Link as={Link} to='/lodgings' >Lodging List</Nav.Link>
             
           <Nav className="ml-auto">
-          <Navbar.Brand >
+          <Navbar.Brand  >
             Welcome: {user.username}
           </Navbar.Brand>
           <Dropdown >

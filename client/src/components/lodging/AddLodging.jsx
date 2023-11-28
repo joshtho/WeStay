@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form'
 import {useNavigate} from 'react-router-dom'
 import AddLocation from '../locations/AddLocation';
@@ -57,6 +58,8 @@ function AddLodging({onNewLodging, locations, user, onNewLocation, setLoading}) 
         <div>
             {locations ?
             <>
+            <Container>
+
                 <h1>Your new stay in </h1>
                 <Form.Select 
                 aria-label="Choose city" 
@@ -69,7 +72,8 @@ function AddLodging({onNewLodging, locations, user, onNewLocation, setLoading}) 
                 ""
                 :
                 <>
-                    <h1>or add new location</h1>
+                <br></br>
+                    <h1>or,</h1>
                     <AddLocation 
                     onNewLocation={onNewLocation} 
                     selectCity={selectCity} 
@@ -136,6 +140,7 @@ function AddLodging({onNewLodging, locations, user, onNewLocation, setLoading}) 
                 {errors.map(error => (
                     <li>{error}</li>
                 ))}
+            </Container>
             </>
             : <h1>Loading..</h1>
             }

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import Container from 'react-bootstrap/esm/Container';
+import Card from 'react-bootstrap/esm/Card';
 import { useNavigate } from 'react-router-dom';
 
 function SignupPage({setLoggedIn, setUser, setLoading}) {
@@ -36,7 +36,7 @@ function SignupPage({setLoggedIn, setUser, setLoading}) {
           setLoading(false)
     }
   return (
-    <Container>
+    <Card className='mx-auto' style={{marginTop: "25px"}}>
 
     <Form onSubmit={handleSignupSubmit} >
         <h1>Ready to plan your stay?</h1>
@@ -75,7 +75,7 @@ function SignupPage({setLoggedIn, setUser, setLoading}) {
         }
 
     </Form>
-  </Container>
+  </Card>
   );
 }
 

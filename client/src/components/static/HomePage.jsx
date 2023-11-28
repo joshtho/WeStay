@@ -3,6 +3,11 @@ import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/esm/Container'
 import { useNavigate } from 'react-router-dom'
 
+// Things I want to incorporate on this HomePage
+
+// * When on the first page and there is no session saved, dont show the navBar and have some good font with a button that says enter
+// * When logged in, the homepage will have a fade out "Welcome to WeStay" and then show a fade in of compiled cards of popular locations.
+
 function HomePage({loading, loggedIn}) {
   const navigate = useNavigate()
   function handleClick() {
@@ -14,26 +19,21 @@ function HomePage({loading, loggedIn}) {
   return (
     <div className='home-image'>
       <Container className='container-home'>
-      <h1 className='home-head'>Welcome to WeStay</h1>
-      <br></br>
-      {loggedIn ? "" : 
-      <Button 
-      onClick={handleClick} 
-      className="home-btn" 
-      variant="success">
-        Enter
-      </Button>
-      }
-      
 
+        <h1 >Welcome to WeStay</h1>
+        <br></br>
+        {loggedIn ? "" : 
+
+          <Button 
+          onClick={handleClick}  
+          variant="success"
+          >Enter</Button>
+        
+        }
       </Container>
-      {/* <img 
-        className='img-home' 
-        alt='groupPhoto' 
-        src='https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dHJhdmVsJTIwbGFuZHNjYXBlfGVufDB8fDB8fHww&auto=format&fit=crop&w=400&q=60' /> */}
-    </div>
       
+    </div>
   )
 }
-
-export default HomePage
+    
+export default HomePage;   
