@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form';
+import Card from 'react-bootstrap/Card'
 
 function EditLodging({user, onHandleUpdate, onHandleDelete, setLoading}) {
     const params = useParams()
@@ -46,8 +47,8 @@ function EditLodging({user, onHandleUpdate, onHandleDelete, setLoading}) {
   return (
     <div>
         {locationData ?
-        <div>
-          <h1>{currentLodging.name}</h1>
+        <Card className='mx-auto'style={{marginTop: '30px'}}>
+          <h1>{currentLodging.location.name}</h1>
           <Form onSubmit={handleSubmit}>
             <Form.Group>
               <Form.Label>Dates</Form.Label>
@@ -94,11 +95,12 @@ function EditLodging({user, onHandleUpdate, onHandleDelete, setLoading}) {
               />
             </Form.Group>
             <br></br>
-            <Button onClick={handleSubmit}>Update Location</Button>
-          </Form>
+            <Button variant='success' onClick={handleSubmit}>Update Location</Button>
           <br></br> 
-          <Button onClick={handleDelete}>Delete Location</Button>
-        </div> 
+          <br></br> 
+          <Button onClick={handleDelete}>DELETE Location</Button>
+          </Form>
+        </Card> 
         : <h1>Loading...</h1>
         }
     </div>
