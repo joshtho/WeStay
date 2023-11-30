@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/Container';
+import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form'
 import {useNavigate} from 'react-router-dom'
 import AddLocation from '../locations/AddLocation';
@@ -55,25 +55,17 @@ function AddLodging({onNewLodging, locations, user, onNewLocation, setLoading}) 
     }
 
     return (
-        <div>
+        <div className='lodging-form'>
             {locations ?
             <>
-            <Container>
+            <Card className='mx-auto' style={{margin: "30px"}}>
 
-                <h1>Your new stay in </h1>
-                <Form.Select 
-                aria-label="Choose city" 
-                onChange={e => setLodgingData({...lodgingData, location_id: e.target.value})}
-                >
-                {locationSelect()}
-                </Form.Select>
-                
                 {newLocation ? 
                 ""
                 :
                 <>
                 <br></br>
-                    <h1>or,</h1>
+                    <h1>Add Location</h1>
                     <AddLocation 
                     onNewLocation={onNewLocation} 
                     selectCity={selectCity} 
@@ -82,6 +74,16 @@ function AddLodging({onNewLodging, locations, user, onNewLocation, setLoading}) 
                     />
                 </>
                 }
+                <br></br>
+                <br></br>
+                <h1>or Add existing </h1>
+                <Form.Select 
+                aria-label="Choose city" 
+                onChange={e => setLodgingData({...lodgingData, location_id: e.target.value})}
+                >
+                {locationSelect()}
+                </Form.Select>
+                
 
                 <Form onSubmit={handleSubmit}>
 
@@ -140,7 +142,7 @@ function AddLodging({onNewLodging, locations, user, onNewLocation, setLoading}) 
                 {errors.map(error => (
                     <li>{error}</li>
                 ))}
-            </Container>
+            </Card>
             </>
             : <h1>Loading..</h1>
             }

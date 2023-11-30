@@ -82,6 +82,8 @@ function App() {
     return <div>Loading...</div>
   }
 
+  console.log(locations)
+
   return (
     <div >
       <Router>

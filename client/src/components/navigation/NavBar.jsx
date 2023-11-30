@@ -70,14 +70,14 @@ function NavBar({user, setUser, setLoggedIn}) {
       </Navbar>
     
     : 
-    <Navbar bg="light" data-bs-theme="light">
+    <Navbar  >
         <Container>
           <Link to='/' style={{textDecoration: "none"}}>
-            <Navbar.Brand >WeStay</Navbar.Brand>
+            <Navbar.Brand className='nav-home'>We Stay</Navbar.Brand>
           </Link>
           <Nav className="me-auto">
-              <Nav.Link as={Link} to='/signup' >Signup</Nav.Link>
-              <Nav.Link as={Link} to='/login' >Login</Nav.Link>
+              <Nav.Link className='nav-home' as={Link} to='/signup' >Signup</Nav.Link>
+              <Nav.Link className='nav-home' as={Link} to='/login' >Login</Nav.Link>
           </Nav>
         </Container>
       </Navbar>

@@ -14,9 +14,12 @@ function LocationsList({locations}) {
       <Container className='card-grid'>
         {locationList()}
       </Container>
-        <Link to="/lodgings/add">
-            <Button >Add Lodging</Button>
-        </Link>
+      
+        {/* <Link  to="/lodgings/add">
+            <Button   >Add Lodging</Button>
+        </Link> */}
+        <Link className='btm-btn' as={Link} to="/lodgings/add">Add New</Link>
+        
     </div>
 
   )

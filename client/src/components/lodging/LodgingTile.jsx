@@ -42,12 +42,8 @@ function LodgingTile({stay, onHandleDelete, setLoading}) {
     // </Card>
     <Card className='card'>
     <CloseButton onClick={() => setShowModal(true)} />
-      <h4>{stay.location.name}</h4>
+      <h4 className='card-header'>{stay.location.name}</h4>
       <Card.Title>{stay.season}</Card.Title>
-         <Card.Title>{stay.dates}</Card.Title>
-         <Card.Text>
-           Guests: {stay.guests}
-         </Card.Text>
         <Link to={`/lodgings/${stay.id}/edit`}>
           <Button variant="outline-secondary" size="sm">Edit</Button>
         </Link>
@@ -59,16 +55,20 @@ function LodgingTile({stay, onHandleDelete, setLoading}) {
           />
           <Button onClick={handleLinkClick}>Go to the link</Button>
         {/* </Link> */}
-      <Card.Body>
+      <Card.Body style={{fontFamily: 'Times'}}>
         {/* <ListGroup >
           <h6>Current Location:</h6>
           <ListGroup.Item>{artwork.location}</ListGroup.Item>
           <br></br>
           <h6>Medium:</h6>
           <ListGroup.Item>{artwork.medium}</ListGroup.Item>
-        </ListGroup>
-        <br></br>
-      <ArtworkNote note={artworkNote}/>     */}
+          </ListGroup>
+          <br></br>
+        <ArtworkNote note={artworkNote}/>     */}
+        <Card.Text>
+          Guests: {stay.guests}
+        </Card.Text>
+      <Card.Title>{stay.dates}</Card.Title>
       </Card.Body>
 
       <Modal
@@ -91,6 +91,7 @@ function LodgingTile({stay, onHandleDelete, setLoading}) {
             </Modal.Footer>
           </Modal>
     </Card>
+    
   );
 }
 

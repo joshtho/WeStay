@@ -9,14 +9,14 @@ function SuggestLocationTile({location}) {
     <Card style={{ width: '18rem' }} className='column' >
       <Card.Img variant="top" src={location.image} />
       <Card.Body>
-        <Card.Title>{location.name}</Card.Title>
-        <Card.Text>{location.description}</Card.Text>
+        <Card.Title className='card-header'>{location.name}</Card.Title>
+        {/* <Card.Text>{location.description}</Card.Text>
         Others are staying here
         {location.unique_users.map(user => (
           <h5 key={user.index}>{user}</h5>
-        ))}
+        ))} */}
             <Link to="/lodgings/add">
-              <Button>Add a stay here</Button>
+              <Button>Add Stay</Button>
             </Link>
       </Card.Body>
     </Card>

@@ -20,7 +20,7 @@ function HomePage({loading, loggedIn}) {
     <div className='home-image'>
       <Container className='container-home'>
 
-        <h1 >Welcome to WeStay</h1>
+        <h1 >Welcome to We Stay</h1>
         <br></br>
         {loggedIn ? "" : 
 

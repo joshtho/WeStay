@@ -41,7 +41,7 @@ function LoginPage({setLoggedIn, setUser}) {
     <Card className='mx-auto' style={{marginTop: '25px'}}>
 
     <Form className='form-container' onSubmit={handleLoginSubmit} >
-        <h1>Please Login</h1>
+        <h1>Welcome back!</h1>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email</Form.Label>
         <Form.Control 
@@ -67,6 +67,9 @@ function LoginPage({setLoggedIn, setUser}) {
       <Button variant="primary" type="submit">
         Submit
       </Button>
+      <br></br>
+      <br></br>
+      <Button onClick={() => setLoginData({username: 'traveler1@abc.com', password: 'password1'})}>Trial User</Button>
       {
         errors ? 
         errors.map(error => (
@@ -74,6 +77,7 @@ function LoginPage({setLoggedIn, setUser}) {
           ))
           : null
         }
+        
     </Form>
     </Card>
     

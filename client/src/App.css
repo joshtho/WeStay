@@ -2,8 +2,29 @@
   font-family: 'skyfont';
   src: url(fonts/skyfont);
 }
+@font-face {
+  font-family: 'travel-next';
+  src: url(fonts/travel-next.ttf);
+}
 
+h1 {
+  font-family: 'travel-next';
+}
 
+.btn-primary.btn-primary {
+  --bs-btn-bg: 	#FF3131;
+  --bs-btn-border-color: #FF3131;
+  --bs-btn-active-bg: #FF3131;
+
+}
+
+.lodging-form {
+  font-family: 'travel-next';
+}
+.card-header.card-header {
+  font-family: 'travel-next';
+  font-size: 2rem;
+}
 .nav-link.nav-home {
   font-family: 'skyfont', serif;
   font-size: x-large;
@@ -31,10 +52,16 @@
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 2);
   color: #222;
   flex: 0 0 100%;
+  
 }
 
 .btm-btn {
-  margin-bottom: 10%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  font-family: 'skyfont', serif;
+  font-size: x-large;
+  color: #222;
 }
 
 .card-grid {
@@ -90,7 +117,7 @@
 }
 
 .home-image h1 {
-  font-family: 'skyfont', Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: 'travel-next', Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   color: black;
   font-size: 70px;
 }

@@ -17,10 +17,10 @@ function LodgingList({user, onHandleDelete, setLoading }) {
         {userLodgings()}
         
     </Container>
-    <br></br>
-        <Link to="/lodgings/add">
-            <Button className='btm-btn'>Add new stay</Button>
-        </Link>
+        {/* <Link className='btm-btn' to="/lodgings/add">
+            <Button >Add new stay</Button>
+        </Link> */}
+        <Link className='btm-btn' as={Link} to="/lodgings/add">Add New</Link>
     </>
   )
 }
