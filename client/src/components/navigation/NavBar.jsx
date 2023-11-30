@@ -26,14 +26,14 @@ function NavBar({user, setUser, setLoggedIn}) {
     {user && user.id ?
     <Navbar  >
         <Container>
-          <Link to='/' style={{textDecoration: "none", color: 'white'}}>
-            <Navbar.Brand >░W░e░S░t░a░y░</Navbar.Brand>
+          <Link to='/' >
+            <Navbar.Brand className='nav-home' >WeStay</Navbar.Brand>
           </Link>
-            <Nav.Link as={Link} to='/locations' >Location List</Nav.Link>
-            <Nav.Link as={Link} to='/lodgings' >Lodging List</Nav.Link>
+            <Nav.Link as={Link} to='/locations' className='nav-home' >Locations</Nav.Link>
+            <Nav.Link as={Link} to='/lodgings' className='nav-home' >Lodgings</Nav.Link>
             
           <Nav className="ml-auto">
-          <Navbar.Brand  >
+          <Navbar.Brand style={{fontSize: 'small'}}  >
             Welcome: {user.username}
           </Navbar.Brand>
           <Dropdown >

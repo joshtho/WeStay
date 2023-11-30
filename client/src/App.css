@@ -1,23 +1,19 @@
-/* 
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-} */
-
-
-.nav-font {
-  font-family: 'Times New Roman', Times, serif;
-  font-weight: 300;
-  font-size: larger;
-  color: rgb(239, 245, 239);
+@font-face {
+  font-family: 'skyfont';
+  src: url(fonts/skyfont);
 }
+
+
+.nav-link.nav-home {
+  font-family: 'skyfont', serif;
+  font-size: x-large;
+}
+
+.navbar-brand.nav-home {
+  font-family: 'skyfont', serif;
+  font-size: xx-large;
+}
+
 
 .dropdown-menu[data-bs-popper].dropdown {
   left: -100px;
@@ -93,10 +89,10 @@
   height: 100%;  */
 }
 
-h1 {
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  color: rgb(40, 69, 10);
-  font-size: larger;
+.home-image h1 {
+  font-family: 'skyfont', Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  color: black;
+  font-size: 70px;
 }
 
 /* .form-container {
@@ -113,7 +109,7 @@ h1 {
 }
 
 .form-label {
-  color: rgb(243, 217, 69);
+  color: black;
   display: flex;
   text-align: left;
   font-size: large;
