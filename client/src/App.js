@@ -9,6 +9,7 @@ import AddLodging from './components/lodging/AddLodging';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SignupPage from './components/navigation/SignupPage';
 import LodgingList from './components/lodging/LodgingList';
+import LocationPage from './components/locations/LocationPage';
 
 
 function App() {
@@ -116,6 +117,14 @@ function App() {
               user={user}
               />
             } 
+          />
+          <Route 
+          path='/locations/:id'
+          element={
+            <LocationPage 
+            locations={locations}
+            />
+          }
           /> 
         </Routes>
       </Router>
