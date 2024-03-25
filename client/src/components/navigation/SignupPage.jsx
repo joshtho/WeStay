@@ -39,7 +39,7 @@ function SignupPage({setLoggedIn, setUser, setLoading}) {
     <Card className='mx-auto' style={{marginTop: "25px"}}>
 
     <Form onSubmit={handleSignupSubmit} >
-        <h1>We stay ready for your your stay</h1>
+        <h1>WeStay ready for new users</h1>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Username</Form.Label>
         <Form.Control 

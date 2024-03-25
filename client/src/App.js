@@ -79,11 +79,12 @@ function App() {
     setUser({...user, lodgings: [...updateUserLodgings, updatedObj]})
   }
 
+  console.log(locations)
+  
   if (loading) {
     return <div>Loading...</div>
   }
 
-  console.log(locations)
 
   return (
     <div >
