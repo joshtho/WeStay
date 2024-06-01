@@ -8,19 +8,20 @@ function LodgingList({user, onHandleDelete, setLoading }) {
   const userLodgings = () => 
     user.lodgings.map(lodging => (
       <>
-      <LodgingTile key={lodging.id} stay={lodging} onHandleDelete={onHandleDelete} setLoading={setLoading} />
+      <LodgingTile 
+      key={lodging.id} 
+      lodging={lodging} 
+      onHandleDelete={onHandleDelete} 
+      setLoading={setLoading} 
+      />
       </>
     ))
   return (
     <>
     <Container className='card-grid'>
         {userLodgings()}
-        
     </Container>
-        {/* <Link className='btm-btn' to="/lodgings/add">
-            <Button >Add new stay</Button>
-        </Link> */}
-        <Link className='btm-btn' as={Link} to="/lodgings/add">Add New</Link>
+    <Link className='btm-btn' as={Link} to="/lodgings/add">Add New</Link>
     </>
   )
 }

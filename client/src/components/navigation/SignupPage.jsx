@@ -38,45 +38,40 @@ function SignupPage({setLoggedIn, setUser, setLoading}) {
   return (
     <Card className='mx-auto' style={{marginTop: "25px"}}>
 
-    <Form onSubmit={handleSignupSubmit} >
+      <Form onSubmit={handleSignupSubmit} >
         <h1>WeStay ready for new users</h1>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Username</Form.Label>
-        <Form.Control 
-        type="email" 
-        placeholder="Please create with email address"
-        value={signupData.username}
-        onChange={e => setSignupData({...signupData, username: e.target.value})}
-        />
-        <Form.Text className="text-muted">
-          We'll never share your email with anyone else.
-        </Form.Text>
-      </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>Username</Form.Label>
+          <Form.Control 
+          type="email" 
+          placeholder="Please create with email address"
+          value={signupData.username}
+          onChange={e => setSignupData({...signupData, username: e.target.value})}
+          />
+          <Form.Text className="text-muted">
+            We'll never share your email with anyone else.
+          </Form.Text>
+        </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control 
-        type="password" 
-        placeholder="Create a Password" 
-        value={signupData.password}
-        onChange={e => setSignupData({...signupData, password: e.target.value})}
-        />
-      </Form.Group>
-      
-      <Button variant="primary" type="submit">
-        Submit
-      </Button>
-      {
-        errors ? 
-        errors.map(error => (
-          <li>{error}</li>
-          ))
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Label>Password</Form.Label>
+          <Form.Control 
+          type="password" 
+          placeholder="Create a Password" 
+          value={signupData.password}
+          onChange={e => setSignupData({...signupData, password: e.target.value})}
+          />
+        </Form.Group>
+        
+        <Button variant="primary" type="submit">Submit</Button>
+        { errors ? 
+          errors.map(error => (
+            <li>{error}</li>
+            ))
           : null
         }
-
-    </Form>
-    
-  </Card>
+      </Form>
+    </Card>
   );
 }
 

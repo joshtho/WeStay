@@ -19,21 +19,16 @@ function HomePage({loading, loggedIn}) {
   return (
     <div className='home-image'>
       <Container className='container-home'>
-
         <h1 >Welcome to We Stay</h1>
         <br></br>
-        {loggedIn ? "" : 
-
-          <Button 
-          onClick={handleClick}  
-          variant="success"
-          >Enter</Button>
-        
+        {loggedIn ? 
+          "" 
+        : 
+          <Button onClick={handleClick}  variant="success">Enter</Button>
         }
       </Container>
-      
     </div>
   )
 }
     
-export default HomePage;   
+export default HomePage;

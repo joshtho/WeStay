@@ -5,70 +5,43 @@ import Modal from 'react-bootstrap/Modal'
 import CloseButton from 'react-bootstrap/CloseButton';
 import { useNavigate, Link } from 'react-router-dom';
 
-function LodgingTile({stay, onHandleDelete, setLoading}) {
+function LodgingTile({lodging, onHandleDelete, setLoading}) {
   const navigate = useNavigate()
   const [showModal, setShowModal] = useState(false)
   
   function handleLinkClick() {
-    window.open(stay.link)
+    window.open(lodging.link)
   }
 
   function handleDeleteClick() {
-    fetch(`/lodgings/${stay.id}`, {
+    fetch(`/lodgings/${lodging.id}`, {
       method: "DELETE",
     })
-    onHandleDelete(stay)
+    onHandleDelete(lodging)
     navigate(`/lodgings`)
   }
   
   return (
-    // <Card style={{ width: '18rem' }}>
-    //   <Card.Body>
-    //     <Card.Text>
-    //       Location: {stay.location.name}
-    //     </Card.Text>
-    //   <Card.Img variant="top" src={stay.image} />
-    //     <Card.Title>{stay.season}</Card.Title>
-    //     <Card.Title>{stay.dates}</Card.Title>
-    //     <Card.Text>
-    //       Guests: {stay.guests}
-    //     </Card.Text>
-    //     <Button onClick={handleLinkClick}>Go to the link</Button>
-
-    //     <Link to={`/lodgings/${stay.id}/edit`}>
-    //         <Button>Edit</Button>
-    //     </Link>
-    //   </Card.Body>
-    // </Card>
     <Card className='card'>
-    <CloseButton onClick={() => setShowModal(true)} />
-      <h4 className='card-header'>{stay.location.name}</h4>
-      <Card.Title>{stay.season}</Card.Title>
-        <Link to={`/lodgings/${stay.id}/edit`}>
+      <CloseButton onClick={() => setShowModal(true)} />
+      <h4 className='card-header'>{lodging.location.name}</h4>
+      <Card.Title>{lodging.season}</Card.Title>
+        <Link to={`/lodgings/${lodging.id}/edit`}>
           <Button variant="outline-secondary" size="sm">Edit</Button>
         </Link>
-        {/* <Link to={`/artworks/view/${artwork.id}`} > */}
           <Card.Img 
-          title='Click here to see Artwork' 
+          title='Go to website'
+          onClick={handleLinkClick} 
+          style={{cursor:'pointer'}}
           variant="top" 
-          src={stay.image} 
+          src={lodging.image} 
           />
           <Button onClick={handleLinkClick}>Go to the link</Button>
-        {/* </Link> */}
       <Card.Body style={{fontFamily: 'Times'}}>
-        {/* <ListGroup >
-          <h6>Current Location:</h6>
-          <ListGroup.Item>{artwork.location}</ListGroup.Item>
-          <br></br>
-          <h6>Medium:</h6>
-          <ListGroup.Item>{artwork.medium}</ListGroup.Item>
-          </ListGroup>
-          <br></br>
-        <ArtworkNote note={artworkNote}/>     */}
         <Card.Text>
-          Guests: {stay.guests}
+          Guests: {lodging.guests}
         </Card.Text>
-      <Card.Title>{stay.dates}</Card.Title>
+      <Card.Title>{lodging.dates}</Card.Title>
       </Card.Body>
 
       <Modal
