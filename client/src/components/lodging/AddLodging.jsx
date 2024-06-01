@@ -129,9 +129,9 @@ function AddLodging({onNewLodging, locations, user, onNewLocation, setLoading}) 
 
                     <Form.Group>
                         <Form.Label>Guests</Form.Label>
-                        <Form.Control  
-                        type="text" 
-                        placeholder='Estimated exact number of guests ...'
+                        <Form.Control 
+                        style={{fontFamily: 'arial'}}
+                        type="number" 
                         value={lodgingData.guests}
                         onChange={(e) => setLodgingData({...lodgingData, guests: e.target.value})}
                         />
